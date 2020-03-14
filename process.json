@@ -1,0 +1,35 @@
+{
+  "client": {
+    "username": "Jeffo",
+    "tag": "Jeffo#0001",
+    "id": "447835760662413324"
+  },
+  "modules": {
+    "announcements": false,
+    "applications": false,
+    "backup": false,
+    "bugs": false,
+    "changelogs": false,
+    "echo": false,
+    "eval": false,
+    "farewell": false,
+    "giveaways": false,
+    "invites": false,
+    "invite_filter": false,
+    "joke": false,
+    "music": false,
+    "nuke": false,
+    "points": false,
+    "polls": false,
+    "punishments": false,
+    "rainbow": false,
+    "reports": false,
+    "reaction": false,
+    "role_count": false,
+    "silence": false,
+    "suggestions": false,
+    "tickets": false,
+    "verification": false,
+    "welcome": true
+  }
+}

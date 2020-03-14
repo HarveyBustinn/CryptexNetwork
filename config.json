@@ -1,0 +1,21 @@
+{
+  "prefix": "!",
+  "token": "Njg4NTA2MzgwNzQyNjg4ODQ5.Xm1Vfw.f8D_5xYL1htIsCLTAuO13AUj750",
+  "helpOnInvalidCommand": true,
+  "deleteResponseAfter": 10000,
+  "presence": {
+    "status": "dnd",
+    "activity": {
+      "name": "play.cryptexnetwork.com",
+      "type": "watching"
+    }
+  },
+  "embed": {
+    "colour": "#7289da",
+    "footer": "Footer"
+  },
+  "roles": {
+    "staff": "Staff",
+    "admin": "Admin"
+  }
+}
