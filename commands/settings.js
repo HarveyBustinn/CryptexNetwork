@@ -42,7 +42,7 @@ module.exports = {
           ]
         },
         message: {
-          usage: '<message>\n\n**Placeholders**: {username}, {username_with_tag}, {tag}',
+          usage: '<message>\n\n**Placeholders**: {username}, {username_with_tag}, {tag}, {count}',
           arguments: [
             {
               boolean: async a => !!a,

@@ -46,7 +46,10 @@ module.exports.guildMemberAdd.every = async ({ guild, user, roles }) => {
 
   if (add.length > 0) await roles.set(add);
 
-  return utils.embed(new MessageEmbed()
-    .setDescription(message)
-    .setThumbnail(user.displayAvatarURL()), false, channel);
+  const embed = new MessageEmbed()
+    .setDescription(message);
+  
+  embed.setThumbnail(user.displayAvatarURL());
+
+  return utils.embed(embed, false, channel);
 }
