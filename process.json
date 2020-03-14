@@ -28,7 +28,7 @@
     "role_count": false,
     "silence": false,
     "suggestions": false,
-    "tickets": false,
+    "tickets": true,
     "verification": false,
     "welcome": true
   }
