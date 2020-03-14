@@ -1,12 +1,12 @@
 {
   "prefix": "!",
-  "token": "DISCORD_BOT_TOKEN",
+  "token": "Njg4NTA2MzgwNzQyNjg4ODQ5.Xm1Vfw.f8D_5xYL1htIsCLTAuO13AUj750",
   "helpOnInvalidCommand": true,
   "deleteResponseAfter": 10000,
   "presence": {
     "status": "dnd",
     "activity": {
-      "name": "out for you ❤️",
+      "name": "CryptexNetwork",
       "type": "watching"
     }
   },
