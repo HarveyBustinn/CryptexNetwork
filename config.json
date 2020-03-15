@@ -4,7 +4,7 @@
   "helpOnInvalidCommand": true,
   "deleteResponseAfter": 10000,
   "presence": {
-    "status": "dnd",
+    "status": "online",
     "activity": {
       "name": "CryptexNetwork",
       "type": "watching"
