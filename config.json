@@ -11,8 +11,7 @@
     }
   },
   "embed": {
-    "colour": "#7289da",
-    "footer": "Footer"
+    "colour": "#7289da"
   },
   "roles": {
     "staff": "Staff",
