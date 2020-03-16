@@ -1,1 +1,1 @@
-{"$$deleted":true,"_id":"xxxxxxxxxxxxx"}
+{"$$indexCreated":{"fieldName":"guild_id","unique":true,"sparse":false}}
