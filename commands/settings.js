@@ -32,6 +32,24 @@ module.exports = {
   options: {
     welcome: {
       options: {
+        profile: {
+          options: {
+            enable: {
+              arguments: [
+                {
+                  apply: async (a, { guild }) => await databases.config.update({ guild_id: guild.id, 'profile.welcome': false }, { $set: { 'profile.welcome': true } }) + 1
+                }
+              ]
+            },
+            disable: {
+              arguments: [
+                {
+                  apply: async (a, { guild }) => await databases.config.update({ guild_id: guild.id, 'profile.welcome': true }, { $set: { 'profile.welcome': false } }) + 1
+                }
+              ]
+            }
+          }
+        },
         channel: {
           usage: '<channel>',
           arguments: [
@@ -43,6 +61,15 @@ module.exports = {
         },
         message: {
           usage: '<message>\n\n**Placeholders**: {username}, {username_with_tag}, {tag}, {count}',
+          arguments: [
+            {
+              boolean: async a => !!a,
+              error: 'must be present'
+            }
+          ]
+        },
+        title: {
+          usage: '<message>\n\n**Placeholders**: {username}, {username_with_tag}, {count}',
           arguments: [
             {
               boolean: async a => !!a,
@@ -89,7 +116,30 @@ module.exports = {
         }
       }
     },
+    mute: {
+      options: {
+        role: {
+          usage: '<role>',
+          arguments: [
+            {
+              apply: async (a, { guild }) => a && utils.getRole(guild.roles.cache, a),
+              error: 'must be a valid role id, name, or tag'
+            }
+          ]
+        }
+      }
+    },
   }
+}
+
+module.exports.options.welcome.options.profile.options.enable.run = async (_, updated) => {
+  if (updated <= 1) throw 'The profile picture is already enabled on welcome messages.';
+  return 'Profile pictures have been enabled for welcome messages.';
+}
+
+module.exports.options.welcome.options.profile.options.disable.run = async (_, updated) => {
+  if (updated <= 1) throw 'The profile picture is already disabled on welcome messages.';
+  return 'Profile pictures have been disabled for welcome messages.';
 }
 
 module.exports.options.welcome.options.channel.run = async ({ guild }, channel) => {
@@ -100,6 +150,11 @@ module.exports.options.welcome.options.channel.run = async ({ guild }, channel) 
 module.exports.options.welcome.options.message.run = async ({ guild }, ...message) => {
   await databases.config.update({ guild_id: guild.id }, { $set: { 'messages.welcome': message.join(' ') } });
   return `Welcome message has been set to\n\`\`\`\n${Util.escapeCodeBlock(message.join(' '))}\`\`\``;
+}
+
+module.exports.options.welcome.options.title.run = async ({ guild }, ...message) => {
+  await databases.config.update({ guild_id: guild.id }, { $set: { 'messages.welcome_title': message.join(' ') } });
+  return `Welcome title has been set to\n\`\`\`\n${Util.escapeCodeBlock(message.join(' '))}\`\`\``;
 }
 
 module.exports.options.welcome.options.enable.run = async (_, updated) => {
@@ -131,4 +186,9 @@ module.exports.options.welcome.options.roles.options.list.run = async ({ guild }
   
   return utils.embed(new MessageEmbed()
     .setDescription(roles), 'Roles');
+}
+
+module.exports.options.mute.options.role.run = async ({ guild }, { name, id }) => {
+  await databases.config.update({ guild_id: guild.id }, { $set: { 'roles.muted': id } });
+  return `Changed mute role to **${name}** (*${id}*).`;
 }
