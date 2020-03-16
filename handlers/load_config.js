@@ -37,6 +37,10 @@ const config = {
   messages: {
     welcome: 'Welcome {tag} to the Discord server!'
   },
+  profiles: {
+    welcome: true,
+    farewell: true
+  },
   categories: {},
   tickets: {
     settings: {},
