@@ -6,12 +6,12 @@
   "presence": {
     "status": "dnd",
     "activity": {
-      "name": "out for you ❤️",
-      "type": "watching"
+      "name": "CryptexNetwork",
+      "type": "Playing"
     }
   },
   "embed": {
-    "colour": "#7289da",
+    "colour": "#7289da"
   },
   "roles": {
     "staff": "Staff",
