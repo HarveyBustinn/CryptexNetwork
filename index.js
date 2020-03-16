@@ -47,10 +47,10 @@ function loadEvents(e) {
 
 (async () => {
   if (process.version.match(/\d+/)[0] < 12) {
-    console.log(`[ Fatal ] Please use Node.js version 12 or higher.\n[   Fatal   ] Current version: ${process.version.slice(1)}`.red);
+    console.log(`[ Fatal ] Please use Node.js version 12 or higher.\n[ Fatal ] Current version: ${process.version.slice(1)}`.red);
     process.exit();
   } else if (version.match(/^\d+/)[0] < 12) {
-    console.log(`[ Fatal ] Please use Discord.js version 12 or higher.\n[   Fatal   ] Current version: ${version}`.red);
+    console.log(`[ Fatal ] Please use Discord.js version 12 or higher.\n[ Fatal ] Current version: ${version}`.red);
     process.exit();
   }
 
@@ -129,5 +129,5 @@ function loadEvents(e) {
   console.log(`[ Starting ] Loaded ${client.events.size} events`.green);
   console.log(`[  Loaded  ] Finished startup in ${((Date.now() - start) / 1000).toFixed(2)}s.`.brightGreen);
 
-  client.login(process.env.BOT_TOKEN);
+  client.login(token);
 })();

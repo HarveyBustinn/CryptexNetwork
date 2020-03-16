@@ -1,17 +1,18 @@
 {
   "prefix": "!",
-  "token": "Njg4NTA2MzgwNzQyNjg4ODQ5.Xm1lWw.QOa8hLTW9I6mcOS4W5kPilSpIUA",
+  "token": "DISCORD_BOT_TOKEN",
   "helpOnInvalidCommand": true,
   "deleteResponseAfter": 10000,
   "presence": {
-    "status": "online",
+    "status": "dnd",
     "activity": {
-      "name": "CryptexNetwork",
+      "name": "out for you ❤️",
       "type": "watching"
     }
   },
   "embed": {
-    "colour": "#7289da"
+    "colour": "#7289da",
+    "footer": "Footer"
   },
   "roles": {
     "staff": "Staff",

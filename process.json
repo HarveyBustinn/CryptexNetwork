@@ -21,7 +21,7 @@
     "nuke": false,
     "points": false,
     "polls": false,
-    "punishments": false,
+    "punishments": true,
     "rainbow": false,
     "reports": false,
     "reaction": false,
