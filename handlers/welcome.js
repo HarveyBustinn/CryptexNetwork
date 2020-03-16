@@ -30,15 +30,22 @@ module.exports = {
 }
 
 module.exports.guildMemberAdd.every = async ({ guild, user, roles }) => {
-  const [ id, message, add ] = await utils.config(guild.id, a => a.enabled.welcome ? [
+  const [ id, message, add, profile, title ] = await utils.config(guild.id, a => a.enabled.welcome ? [
     a.channels.welcome,
     a.messages.welcome
       .replace(/\{username\}/g, user.username)
       .replace(/\{username_with_tag\}/g, user.tag)
       .replace(/\{tag\}/g, user)
       .replace(/\{count\}/g, guild.memberCount),
-    a.roles.welcome || []
-  ] : []);
+    a.roles.welcome || [],
+    a.profiles.welcome,
+    a.messages.welcome_title
+      ? a.messages.welcome_title
+        .replace(/\{username\}/g, user.username)
+        .replace(/\{username_with_tag\}/g, user.tag)
+        .replace(/\{count\}/g, guild.memberCount)
+      : false
+  ] : []) || [];
 
   const channel = guild.channels.cache.get(id);
 
@@ -49,7 +56,8 @@ module.exports.guildMemberAdd.every = async ({ guild, user, roles }) => {
   const embed = new MessageEmbed()
     .setDescription(message);
   
-  embed.setThumbnail(user.displayAvatarURL());
+  if (profile) embed.setThumbnail(user.displayAvatarURL());
+  if (title != false) embed.setTitle(title);
 
   return utils.embed(embed, false, channel);
 }
