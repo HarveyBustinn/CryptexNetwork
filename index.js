@@ -127,7 +127,7 @@ function loadEvents(e) {
   }
 
   console.log(`[ Starting ] Loaded ${client.events.size} events`.green);
-  console.log(`[  Loaded  ] Finished startup in ${((Date.now() - start) / 1000).toFixed(2)}s.`.brightGreen);
+  console.log(`[  Loaded  ] Finished startup in ${((Date.now() - start) / 1000).toFixed(2)}s`.brightGreen);
 
-  client.login(process.env.BOT_TOKEN);
+  client.login(token);
 })();

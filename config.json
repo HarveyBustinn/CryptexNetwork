@@ -4,10 +4,10 @@
   "helpOnInvalidCommand": true,
   "deleteResponseAfter": 10000,
   "presence": {
-    "status": "online",
+    "status": "dnd",
     "activity": {
-      "name": "CryptexNetwork",
-      "type": "Playing"
+      "name": "out for you ❤️",
+      "type": "watching"
     }
   },
   "embed": {
